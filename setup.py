@@ -13,5 +13,5 @@ if not os.getenv == 0:
   sys.exit()
 else:
   for file in os.listdir('utils'):
-    os.system(f'cp utils/{file} {bindir}/{file.split('.')[1]}')
+    os.system(f'cp utils/{file} {bindir}/{file.split(".")[1]}')
   print(f'Done! HashUtils installed in {bindir} !')
