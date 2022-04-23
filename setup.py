@@ -8,10 +8,13 @@ else:
     bindir = sys.argv[1]
   else:
     raise CannotInstallError('Path is not exists!')
-if not os.getenv == 0:
-  os.system(f'pkexec python3 {sys.argv[0]}')
+if not os.getuid() == 0:
+  os.system(f'pkexec sh -c "cd {os.getcwd()} && python3 {sys.argv[0]}"')
   sys.exit()
 else:
   for file in os.listdir('utils'):
-    os.system(f'cp utils/{file} {bindir}/{file.split(".")[1]}')
+    print(f'Copying {file.split(".")[0].upper()} algorhytm binary!')
+    os.system(f'cp utils/{file} {bindir}/{file.split(".")[0]}')
+    print(f'CHMODing {file.split(".")[0].upper()} algorhytm binary!')
+    os.system(f'chmod +x {bindir}/{file.split(".")[0]}')
   print(f'Done! HashUtils installed in {bindir} !')
