@@ -9,7 +9,7 @@ else:
   else:
     raise CannotInstallError('Path is not exists!')
 if not os.getuid() == 0:
-  os.system(f'pkexec sh -c "cd {os.getcwd()} && python3 {sys.argv[0]}"')
+  os.system(f'pkexec sh -c "cd {os.getcwd()} && python3 {sys.argv[0]} {sys.argv[1]}"')
   sys.exit()
 else:
   for file in os.listdir('utils'):
